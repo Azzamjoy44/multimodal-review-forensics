@@ -1,0 +1,283 @@
+% =============================================================================
+% thesis_references.bib
+% Datasets + methods used in "A Multi-Modal Adversarial Network for Real-Time
+% Review Forensics". Mirrors the "Master Dataset Citations" table in THESIS_NOTES.md.
+%
+% BEST-EFFORT: these are well-known papers, but VERIFY each entry's exact fields
+% (authors, venue, pages, year) and the dataset license on the source page before
+% final submission.
+% =============================================================================
+
+% ----------------------------- DATASETS --------------------------------------
+
+% 1. Amazon Fine Food Reviews (data/Reviews.csv) + underlying data for the Amazon
+%    Musical Instruments fraud graph.
+@inproceedings{mcauley2013amateurs,
+  title     = {From amateurs to connoisseurs: modeling the evolution of user expertise through online reviews},
+  author    = {McAuley, Julian John and Leskovec, Jure},
+  booktitle = {Proceedings of the 22nd International Conference on World Wide Web (WWW)},
+  pages     = {897--908},
+  year      = {2013}
+}
+
+% 2. Fake Reviews Dataset (CG/OR) (data/fake reviews dataset.csv)
+@article{salminen2022fake,
+  title   = {Creating and detecting fake reviews of online products},
+  author  = {Salminen, Joni and Kandpal, Chandrashekhar and Kamel, Ahmed Mohamed and Jung, Soon-Gyo and Jansen, Bernard J.},
+  journal = {Journal of Retailing and Consumer Services},
+  volume  = {64},
+  pages   = {102771},
+  year    = {2022},
+  doi     = {10.1016/j.jretconser.2021.102771}
+}
+
+% 2b. Ott Deceptive Opinion Spam Corpus -- HUMAN-WRITTEN deceptive reviews (positive).
+@inproceedings{ott2011deceptive,
+  title     = {Finding Deceptive Opinion Spam by Any Stretch of the Imagination},
+  author    = {Ott, Myle and Choi, Yejin and Cardie, Claire and Hancock, Jeffrey T.},
+  booktitle = {Proceedings of the 49th Annual Meeting of the Association for Computational Linguistics (ACL)},
+  pages     = {309--319},
+  year      = {2011}
+}
+
+% 2c. Ott et al. -- negative-polarity deceptive reviews (completes the 1,600-review corpus).
+@inproceedings{ott2013negative,
+  title     = {Negative Deceptive Opinion Spam},
+  author    = {Ott, Myle and Cardie, Claire and Hancock, Jeffrey T.},
+  booktitle = {Proceedings of the 2013 Conference of the North American Chapter of the Association for Computational Linguistics (NAACL-HLT)},
+  pages     = {497--501},
+  year      = {2013}
+}
+
+% 2d. Li et al. 2014 -- cross-domain human deception (hotel / restaurant / doctor).
+@inproceedings{li2014general,
+  title     = {Towards a General Rule for Identifying Deceptive Opinion Spam},
+  author    = {Li, Jiwei and Ott, Myle and Cardie, Claire and Hovy, Eduard},
+  booktitle = {Proceedings of the 52nd Annual Meeting of the Association for Computational Linguistics (ACL)},
+  pages     = {1566--1576},
+  year      = {2014}
+}
+
+% 3. IMDB 50K Movie Reviews (data/IMDB Dataset.csv)
+@inproceedings{maas2011imdb,
+  title     = {Learning Word Vectors for Sentiment Analysis},
+  author    = {Maas, Andrew L. and Daly, Raymond E. and Pham, Peter T. and Huang, Dan and Ng, Andrew Y. and Potts, Christopher},
+  booktitle = {Proceedings of the 49th Annual Meeting of the Association for Computational Linguistics (ACL)},
+  pages     = {142--150},
+  year      = {2011}
+}
+
+% 4. Sentiment140 (data/tweets.csv, 1.6M tweets)
+@techreport{go2009sentiment140,
+  title       = {Twitter Sentiment Classification using Distant Supervision},
+  author      = {Go, Alec and Bhayani, Richa and Huang, Lei},
+  institution = {Stanford University},
+  type        = {CS224N Project Report},
+  year        = {2009}
+}
+
+% 5. YelpZip + YelpNYC + YelpChi redistribution (data/yelp_split.csv and the Yelp GNN)
+@inproceedings{rayana2015collective,
+  title     = {Collective Opinion Spam Detection: Bridging Review Networks and Metadata},
+  author    = {Rayana, Shebuti and Akoglu, Leman},
+  booktitle = {Proceedings of the 21st ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (KDD)},
+  pages     = {985--994},
+  year      = {2015}
+}
+
+% 6. YelpChi (original paper)
+@inproceedings{mukherjee2013yelp,
+  title     = {What Yelp Fake Review Filter Might Be Doing?},
+  author    = {Mukherjee, Arjun and Venkataraman, Vivek and Liu, Bing and Glance, Natalie},
+  booktitle = {Proceedings of the International AAAI Conference on Web and Social Media (ICWSM)},
+  year      = {2013}
+}
+
+% 7a. Amazon Musical Instruments fraud graph -- 25 node features.
+@inproceedings{liu2020graphconsis,
+  title     = {Alleviating the Inconsistency Problem of Applying Graph Neural Network to Fraud Detection},
+  author    = {Liu, Zhiwei and Dou, Yingtong and Yu, Philip S. and Deng, Yutong and Peng, Hao},
+  booktitle = {Proceedings of the 43rd International ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR)},
+  pages     = {1569--1572},
+  year      = {2020},
+  note      = {arXiv:2005.10150}
+}
+
+% 7b. Amazon Musical Instruments fraud graph -- graph + fraud labels (as used).
+@inproceedings{dou2020caregnn,
+  title     = {Enhancing Graph Neural Network-based Fraud Detectors against Camouflaged Fraudsters},
+  author    = {Dou, Yingtong and Liu, Zhiwei and Sun, Li and Deng, Yutong and Peng, Hao and Yu, Philip S.},
+  booktitle = {Proceedings of the 29th ACM International Conference on Information and Knowledge Management (CIKM)},
+  pages     = {315--324},
+  year      = {2020},
+  note      = {arXiv:2008.08692; dataset: github.com/YingtongDou/CARE-GNN}
+}
+
+% 8. HC3 (Human ChatGPT Comparison Corpus) -- out-of-distribution eval of the CG/OR detector.
+@article{guo2023hc3,
+  title   = {How Close is ChatGPT to Human Experts? Comparison Corpus and Detection},
+  author  = {Guo, Biyang and Zhang, Xin and Wang, Ziyuan and Jiang, Minqi and Nie, Jinran and Ding, Yuxuan and Yue, Jianwei and Wu, Yupeng},
+  journal = {arXiv preprint arXiv:2301.07597},
+  year    = {2023}
+}
+
+% --- Review / Non-Review detector: auxiliary source corpora --------------------
+
+% Amazon Reviews 2023 (Books reviews + metadata for descriptions)
+@article{hou2024amazonreviews2023,
+  title   = {Bridging Language and Items for Retrieval and Recommendation},
+  author  = {Hou, Yupeng and Li, Jiacheng and He, Zhankui and Yan, An and Chen, Xiusi and McAuley, Julian},
+  journal = {arXiv preprint arXiv:2403.03952},
+  year    = {2024}
+}
+
+% Mobile app reviews (app_reviews)
+@inproceedings{grano2017appreviews,
+  title     = {Android Apps and User Feedback: A Dataset for Software Evolution and Quality Improvement},
+  author    = {Grano, Giovanni and Di Sorbo, Andrea and Mercaldo, Francesco and Visaggio, Corrado A. and Canfora, Gerardo and Panichella, Sebastiano},
+  booktitle = {Proceedings of the 2nd ACM SIGSOFT International Workshop on App Market Analytics (WAMA)},
+  pages     = {8--11},
+  year      = {2017}
+}
+
+% Google Local place metadata (business descriptions)
+@inproceedings{li2023showcases,
+  title     = {Personalized Showcases: Generating Multi-Modal Explanations for Recommendations},
+  author    = {Li, An and Yang, Junmo and Mc{A}uley, Julian and others},
+  booktitle = {Proceedings of the 46th International ACM SIGIR Conference (SIGIR)},
+  year      = {2023},
+  note      = {Google Local review/metadata; verify exact author list and dataset page}
+}
+
+% CMU Movie Summary Corpus (film plot summaries)
+@inproceedings{bamman2013personas,
+  title     = {Learning Latent Personas of Film Characters},
+  author    = {Bamman, David and O'Connor, Brendan and Smith, Noah A.},
+  booktitle = {Proceedings of the 51st Annual Meeting of the Association for Computational Linguistics (ACL)},
+  pages     = {352--361},
+  year      = {2013}
+}
+
+% Amazon-QA (product questions)
+@inproceedings{mcauley2016amazonqa,
+  title     = {Addressing Complex and Subjective Product-Related Queries with Customer Reviews},
+  author    = {McAuley, Julian and Yang, Alex},
+  booktitle = {Proceedings of the 25th International Conference on World Wide Web (WWW)},
+  pages     = {625--635},
+  year      = {2016}
+}
+
+% SQuAD (general-knowledge questions)
+@inproceedings{rajpurkar2016squad,
+  title     = {{SQuAD}: 100,000+ Questions for Machine Comprehension of Text},
+  author    = {Rajpurkar, Pranav and Zhang, Jian and Lopyrev, Konstantin and Liang, Percy},
+  booktitle = {Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing (EMNLP)},
+  pages     = {2383--2392},
+  year      = {2016}
+}
+
+% WikiText (encyclopedic prose)
+@article{merity2016wikitext,
+  title   = {Pointer Sentinel Mixture Models},
+  author  = {Merity, Stephen and Xiong, Caiming and Bradbury, James and Socher, Richard},
+  journal = {arXiv preprint arXiv:1609.07843},
+  year    = {2016}
+}
+
+% EmpatheticDialogues (dialogue)
+@inproceedings{rashkin2019empathetic,
+  title     = {Towards Empathetic Open-domain Conversation Models: A New Benchmark and Dataset},
+  author    = {Rashkin, Hannah and Smith, Eric Michael and Li, Margaret and Boureau, Y-Lan},
+  booktitle = {Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics (ACL)},
+  pages     = {5370--5381},
+  year      = {2019}
+}
+
+% AESLC (email)
+@inproceedings{zhang2019aeslc,
+  title     = {This Email Could Save Your Life: Introducing the Task of Email Subject Line Generation},
+  author    = {Zhang, Rui and Tetreault, Joel},
+  booktitle = {Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics (ACL)},
+  pages     = {446--456},
+  year      = {2019}
+}
+
+% LexGLUE (legal)
+@inproceedings{chalkidis2022lexglue,
+  title     = {{LexGLUE}: A Benchmark Dataset for Legal Language Understanding in English},
+  author    = {Chalkidis, Ilias and Jana, Abhik and Hartung, Dirk and Bommarito, Michael and Androutsopoulos, Ion and Katz, Daniel Martin and Aletras, Nikolaos},
+  booktitle = {Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (ACL)},
+  pages     = {4310--4330},
+  year      = {2022}
+}
+
+% CodeSearchNet (source code)
+@article{husain2019codesearchnet,
+  title   = {{CodeSearchNet} Challenge: Evaluating the State of Semantic Code Search},
+  author  = {Husain, Hamel and Wu, Ho-Hsiang and Gazit, Tiferet and Allamanis, Miltiadis and Brockschmidt, Marc},
+  journal = {arXiv preprint arXiv:1909.09436},
+  year    = {2019}
+}
+
+% WritingPrompts (fiction)
+@inproceedings{fan2018writingprompts,
+  title     = {Hierarchical Neural Story Generation},
+  author    = {Fan, Angela and Lewis, Mike and Dauphin, Yann},
+  booktitle = {Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (ACL)},
+  pages     = {889--898},
+  year      = {2018}
+}
+
+% Steam user reviews (games) -- no canonical paper; cite the source.
+@misc{steamreviews,
+  title        = {Steam User Reviews},
+  author       = {{Valve Corporation}},
+  howpublished = {Steam store user reviews; accessed via Hugging Face dataset \texttt{SirSkandrani/steam\_reviews\_clean}},
+  note         = {No formal publication; cite dataset page}
+}
+
+% ----------------------------- METHODS / MODELS ------------------------------
+
+@inproceedings{hamilton2017graphsage,
+  title     = {Inductive Representation Learning on Large Graphs},
+  author    = {Hamilton, William L. and Ying, Rex and Leskovec, Jure},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2017}
+}
+
+@inproceedings{velickovic2018gat,
+  title     = {Graph Attention Networks},
+  author    = {Veli{\v{c}}kovi{\'c}, Petar and Cucurull, Guillem and Casanova, Arantxa and Romero, Adriana and Li{\`o}, Pietro and Bengio, Yoshua},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2018}
+}
+
+@article{sanh2019distilbert,
+  title   = {{DistilBERT}, a distilled version of {BERT}: smaller, faster, cheaper and lighter},
+  author  = {Sanh, Victor and Debut, Lysandre and Chaumond, Julien and Wolf, Thomas},
+  journal = {arXiv preprint arXiv:1910.01108},
+  year    = {2019}
+}
+
+@inproceedings{khosla2020supcon,
+  title     = {Supervised Contrastive Learning},
+  author    = {Khosla, Prannay and Teterwak, Piotr and Wang, Chen and Sarna, Aaron and Tian, Yonglong and Isola, Phillip and Maschinot, Aaron and Liu, Ce and Krishnan, Dilip},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2020}
+}
+
+@inproceedings{lin2017focal,
+  title     = {Focal Loss for Dense Object Detection},
+  author    = {Lin, Tsung-Yi and Goyal, Priya and Girshick, Ross and He, Kaiming and Doll{\'a}r, Piotr},
+  booktitle = {Proceedings of the IEEE International Conference on Computer Vision (ICCV)},
+  pages     = {2980--2988},
+  year      = {2017}
+}
+
+@inproceedings{chen2016xgboost,
+  title     = {{XGBoost}: A Scalable Tree Boosting System},
+  author    = {Chen, Tianqi and Guestrin, Carlos},
+  booktitle = {Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (KDD)},
+  pages     = {785--794},
+  year      = {2016}
+}

@@ -1,0 +1,58 @@
+{
+  "datasets": [
+    {
+      "name": "Yelp",
+      "levels": [
+        {
+          "min_shared": 2,
+          "label": "Broad coverage",
+          "n_rings": 23,
+          "n_reviewers": 162,
+          "review_prec": 0.595,
+          "reviewer_prec": 0.531,
+          "enrichment": 4.5,
+          "url": "/static/gnn/levels/rings_ms2.png",
+          "caption": "Broad coverage: 23 rings / 162 reviewers \u00b7 60% review-precision, 53% reviewer-precision (4.5\u00d7 the 13% base rate). Link reviewers sharing \u22652 flagged businesses."
+        }
+      ]
+    },
+    {
+      "name": "Amazon (Musical Instruments)",
+      "levels": [
+        {
+          "min_shared": 1,
+          "label": "Broad coverage",
+          "n_rings": 28,
+          "n_reviewers": 262,
+          "review_prec": 0.861,
+          "reviewer_prec": 0.861,
+          "enrichment": 9.1,
+          "url": "/static/gnn/levels/amazon_rings_k1.png",
+          "caption": "Broad coverage: 28 rings / 262 reviewers \u00b7 86% of labeled members are confirmed fake (9.1\u00d7 the 10% base rate). Reviewers linked by shared products; ring = a 1-core of flagged reviewers. (net_upu collapses product counts, so strictness is the k-core depth, not shared-product count.)"
+        },
+        {
+          "min_shared": 2,
+          "label": "Balanced",
+          "n_rings": 18,
+          "n_reviewers": 210,
+          "review_prec": 0.878,
+          "reviewer_prec": 0.878,
+          "enrichment": 9.2,
+          "url": "/static/gnn/levels/amazon_rings_k2.png",
+          "caption": "Balanced: 18 rings / 210 reviewers \u00b7 88% of labeled members are confirmed fake (9.2\u00d7 the 10% base rate). Reviewers linked by shared products; ring = a 2-core of flagged reviewers. (net_upu collapses product counts, so strictness is the k-core depth, not shared-product count.)"
+        },
+        {
+          "min_shared": 3,
+          "label": "Strict",
+          "n_rings": 18,
+          "n_reviewers": 204,
+          "review_prec": 0.881,
+          "reviewer_prec": 0.881,
+          "enrichment": 9.3,
+          "url": "/static/gnn/levels/amazon_rings_k3.png",
+          "caption": "Strict: 18 rings / 204 reviewers \u00b7 88% of labeled members are confirmed fake (9.3\u00d7 the 10% base rate). Reviewers linked by shared products; ring = a 3-core of flagged reviewers. (net_upu collapses product counts, so strictness is the k-core depth, not shared-product count.)"
+        }
+      ]
+    }
+  ]
+}

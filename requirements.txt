@@ -1,0 +1,31 @@
+# Runtime dependencies for serving the app (NOT training).
+# Pinned to the versions the models were saved/served with — sklearn + numpy pins
+# matter because the .joblib pipelines are unpickled and are version-sensitive.
+#
+# torch + torchvision are installed SEPARATELY (CPU-only build) in the Dockerfile to
+# avoid pulling the ~2.5 GB CUDA wheels. For a non-Docker install, first run:
+#   pip install torch==2.12.0 torchvision --index-url https://download.pytorch.org/whl/cpu
+# then: pip install -r requirements.txt
+
+fastapi==0.135.1
+uvicorn[standard]==0.41.0
+python-multipart==0.0.28
+
+numpy==2.4.6
+scipy==1.15.2
+scikit-learn==1.6.1
+joblib==1.4.2
+xgboost==3.1.2
+pandas==2.3.3
+
+onnxruntime==1.26.0
+transformers==4.57.6
+optimum==2.1.0
+tokenizers==0.22.2
+
+# image OCR for the Dashboard Analyze upload box — Mistral vision OCR.
+# Extracts ONLY each review's body text (strips reviewer name / stars / date / "Verified
+# Purchase" / "Helpful" / "Translated by Amazon" chrome) and separates multiple reviews in
+# one screenshot into distinct reviews. Requires the MISTRAL_API_KEY environment variable.
+mistralai==1.12.4
+Pillow==11.0.0

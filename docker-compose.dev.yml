@@ -1,0 +1,31 @@
+# DEV mode — live editing, changes reflected automatically (no rebuild, no resync).
+#
+#   Start:  docker compose -f docker-compose.dev.yml up -d --build   (first time)
+#           docker compose -f docker-compose.dev.yml up -d           (after that)
+#   Logs:   docker compose -f docker-compose.dev.yml logs -f
+#
+# How it works:
+#   • The whole project is volume-mounted into the container, so the container always
+#     sees the live files on the host (edit them with VS Code Remote-SSH into the VM).
+#   • uvicorn runs with --reload, so a Python edit auto-restarts the server.
+#
+# What "reflected immediately" means per edit:
+#   • static/index.html (frontend)  -> INSTANT — just refresh the browser (no restart).
+#   • a .py file                    -> auto-restart; the app is back after models reload
+#                                      (~30-60 s — unavoidable, the big models reload into
+#                                      the new process). No manual step needed.
+#
+# Use the plain docker-compose.yml (baked image, no --reload) for a stable/production run.
+
+services:
+  app:
+    build: .
+    container_name: rf-dev
+    restart: unless-stopped
+    ports:
+      - "80:8000"
+    volumes:
+      - ./:/app           # live-mount code + static + data from the host
+    # --reload watches the code; exclude data/ so swapping a model file doesn't trigger
+    # a needless reload (replace a model, then `docker compose -f docker-compose.dev.yml restart app`).
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload --reload-exclude "data/*"

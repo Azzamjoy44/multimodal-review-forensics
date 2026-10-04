@@ -1,0 +1,74 @@
+# ─────────────────────────────────────────────────────────────
+# Data & trained models — hosted separately (Zenodo). See DATA.md
+# ─────────────────────────────────────────────────────────────
+data/
+*.onnx
+*.joblib
+*.keras
+*.h5
+*.pt
+*.pth
+*.db
+*.sqlite
+
+# ── Large archives / bundles ──
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+
+# ── Python ──
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+.pytest_cache/
+
+# ── Secrets & local environment (OCR uses MISTRAL_API_KEY from the env) ──
+.env
+*.env
+.env.*
+secrets.*
+*.key
+
+# ── Editor / OS cruft ──
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
+
+# ── Local assistant tooling (not part of the project) ──
+.claude/
+CLAUDE.md
+
+# ── Third-party templates & reference docs (not ours to redistribute) ──
+Transactions-template*.docx
+An_Adaptive_Method*.pdf
+Diploma-Project-Template*
+Diploma Project Subject Document.pdf
+
+# ── Presentations (large binaries) ──
+*.pptx
+
+# ── Internal working notes / WIP paper / prep tooling (add back when ready) ──
+PUBLICATION_FIXES.md
+TODO.md
+MASTER_PROMPT.md
+paper_draft.md
+paper_ieee.docx
+paper_figures_map.md
+paper_fig_sources/
+_modelb_vs_baseline_full.txt
+
+# ── Generated evaluation outputs ──
+dl_predictions*.csv
+unified_*.csv
+*_stats.csv
+human_fake_recall_ci.csv
+per_business_full.csv
+model_b_member_stats.csv

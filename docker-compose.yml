@@ -1,0 +1,38 @@
+# Canonical run + update mechanism.
+#   Start / update:  docker compose up -d --build
+#   Logs:            docker compose logs -f
+#   Stop:            docker compose down
+#
+# `up -d --build` rebuilds only the layers that changed (pip layer is cached unless
+# requirements.txt changed) and recreates the container — so reflecting an edit is a
+# single command after you've synced the files to the VM.
+
+services:
+  app:
+    build: .
+    container_name: rf
+    restart: unless-stopped
+    ports:
+      - "80:8000"
+
+    # ── Optional: fast iteration without rebuilding the 8 GB image ──
+    # Uncomment to mount code/data/frontend from the host into the container. Then:
+    #   • frontend edit  -> sync static/ then just refresh the browser (no restart)
+    #   • model retrain  -> sync data/ then `docker compose restart app` (no rebuild)
+    #   • python edit    -> sync the .py then `docker compose restart app` (no rebuild)
+    # (With these mounts the host copies override what's baked into the image.)
+    # volumes:
+    #   - ./data:/app/data
+    #   - ./static:/app/static
+    #   - ./:/app           # whole project (dev mode) — overrides image code too
+
+  # ── Optional HTTPS: uncomment to put Caddy in front with automatic TLS ──
+  # caddy:
+  #   image: caddy:2
+  #   restart: unless-stopped
+  #   depends_on: [app]
+  #   ports: ["443:443", "80:80"]
+  #   command: caddy reverse-proxy --from your-domain.com --to app:8000
+  #   volumes: ["caddy_data:/data"]
+# volumes:
+#   caddy_data: {}

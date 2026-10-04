@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fake Review Detector — Sign In</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);
+      font-family: 'Inter', sans-serif;
+      padding: 24px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      padding: 44px 40px 36px;
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .logo-icon {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin: 0 auto 16px;
+      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.35);
+    }
+
+    .logo h1 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1e3a5f;
+      letter-spacing: -0.01em;
+      line-height: 1.4;
+    }
+
+    .logo p {
+      font-size: 0.85rem;
+      color: #64748b;
+      margin-top: 5px;
+      font-weight: 400;
+    }
+
+    .tab-row {
+      display: flex;
+      background: #e2e8f0;
+      padding: 4px;
+      border-radius: 10px;
+      margin-bottom: 28px;
+      gap: 4px;
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 10px;
+      font-size: 0.9rem;
+      border: none;
+      border-radius: 7px;
+      cursor: pointer;
+      background: transparent;
+      color: #64748b;
+      font-weight: 500;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.15s;
+    }
+
+    .tab-btn.active {
+      background: #fff;
+      color: #1e3a5f;
+      font-weight: 600;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #374151;
+      margin-bottom: 6px;
+      margin-top: 16px;
+    }
+
+    label:first-of-type { margin-top: 0; }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 11px 14px;
+      font-size: 0.95rem;
+      font-family: 'Inter', sans-serif;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 8px;
+      outline: none;
+      background: #f8fafc;
+      color: #0f172a;
+      transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus {
+      border-color: #2563eb;
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+    }
+
+    .submit-btn {
+      width: 100%;
+      margin-top: 24px;
+      padding: 12px;
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      letter-spacing: 0.01em;
+      transition: opacity 0.15s, box-shadow 0.15s;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    }
+
+    .submit-btn:hover {
+      opacity: 0.92;
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+    }
+
+    .submit-btn:disabled {
+      background: linear-gradient(135deg, #93a8c4 0%, #93c5fd 100%);
+      cursor: not-allowed;
+      box-shadow: none;
+      opacity: 1;
+    }
+
+    .message {
+      margin-top: 16px;
+      padding: 11px 14px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      display: none;
+      font-weight: 500;
+    }
+
+    .message.error   { background: #fee2e2; color: #991b1b; display: block; border: 1px solid #fecaca; }
+    .message.success { background: #d1fae5; color: #065f46; display: block; border: 1px solid #a7f3d0; }
+
+    .page-footer {
+      margin-top: 24px;
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.6);
+      text-align: center;
+      letter-spacing: 0.03em;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="logo">
+      <div class="logo-icon">🔍</div>
+      <h1>A Multi-Modal Adversarial Network for Real-Time Review Forensics</h1>
+    </div>
+
+    <div class="tab-row">
+      <button class="tab-btn active" id="tabLogin"  onclick="switchTab('login')">Sign In</button>
+      <button class="tab-btn"        id="tabSignup" onclick="switchTab('signup')">Sign Up</button>
+    </div>
+
+    <form id="authForm" onsubmit="submitForm(event)">
+      <label for="username">Email</label>
+      <input id="username" type="email" placeholder="Enter your email" autocomplete="email" required />
+
+      <label for="password">Password</label>
+      <input id="password" type="password" placeholder="Enter your password" autocomplete="current-password" required />
+
+      <button class="submit-btn" type="submit" id="submitBtn">Sign In</button>
+    </form>
+
+    <div class="message" id="message"></div>
+  </div>
+
+
+  <script>
+    let _mode = "login";
+
+    function switchTab(mode) {
+      _mode = mode;
+      document.getElementById("tabLogin").classList.toggle("active",  mode === "login");
+      document.getElementById("tabSignup").classList.toggle("active", mode === "signup");
+      document.getElementById("submitBtn").textContent = mode === "login" ? "Sign In" : "Create Account";
+      document.getElementById("password").autocomplete = mode === "login" ? "current-password" : "new-password";
+      document.getElementById("message").className = "message";
+      document.getElementById("message").textContent = "";
+    }
+
+    async function submitForm(e) {
+      e.preventDefault();
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value;
+      const btn      = document.getElementById("submitBtn");
+      const msgEl    = document.getElementById("message");
+
+      btn.disabled    = true;
+      btn.textContent = _mode === "login" ? "Signing in…" : "Creating account…";
+      msgEl.className = "message";
+
+      const endpoint = _mode === "login" ? "/auth/login" : "/auth/register";
+      const body     = new URLSearchParams({ username, password });
+
+      try {
+        const resp = await fetch(endpoint, { method: "POST", body });
+        const data = await resp.json();
+
+        if (resp.ok) {
+          if (_mode === "login") {
+            window.location.href = "/";
+          } else {
+            msgEl.className   = "message success";
+            msgEl.textContent = "Account created! You can now sign in.";
+            switchTab("login");
+          }
+        } else {
+          msgEl.className   = "message error";
+          msgEl.textContent = data.detail || "Something went wrong.";
+        }
+      } catch (err) {
+        msgEl.className   = "message error";
+        msgEl.textContent = "Could not reach the server.";
+      } finally {
+        btn.disabled    = false;
+        btn.textContent = _mode === "login" ? "Sign In" : "Create Account";
+      }
+    }
+
+    // Allow Enter key to submit
+    document.addEventListener("keydown", e => {
+      if (e.key === "Enter") document.getElementById("authForm").requestSubmit();
+    });
+  </script>
+
+</body>
+</html>

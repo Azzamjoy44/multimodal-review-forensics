@@ -1,0 +1,68 @@
+# Keep the Docker build context (and image) slim: ship ONLY the ~5.6 GB of model
+# artifacts + 2 serving CSVs that are loaded at runtime. Everything below is training
+# data, intermediate files, or model families that were replaced (Model A/B) and are
+# NOT loaded by the live server.
+
+# ── version control / caches / editor ──
+.git/
+.gitignore
+**/__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.idea/
+.vscode/
+*.log
+
+# ── notebooks (training/conversion only) ──
+*.ipynb
+.ipynb_checkpoints/
+
+# ── training datasets & intermediate CSVs (not used at runtime) ──
+data/merged_sentiment.csv
+data/tweets.csv
+data/IMDB Dataset.csv
+data/fake reviews dataset.csv
+data/yelp_split.csv
+data/yelp_split_imbalanced.csv
+data/yelp_multimodal_features.csv
+data/yelp_multimodal_augmented.csv
+data/review_detection.csv
+data/non_reviews.csv
+data/yelp_frontend_reviews.csv
+data/amazon_top100_results.csv
+data/ai_*.csv
+data/fake_reviews_broadened.csv
+data/*_results.csv
+
+# ── raw Yelp dumps (used only to build the frontend CSV) ──
+data/YelpZip*/
+data/YelpNYC*/
+data/YelpChi*/
+
+# ── model families replaced by Model A / Model B (kept on disk locally for eval) ──
+# Amazon-only fake detector -> replaced by Model A (broadened)
+data/fake_*.joblib
+data/fake_lstm.onnx
+data/fake_lstm_tokenizer.json
+data/fake_distilbert_onnx/
+# Yelp text-only baseline + focal/contrastive ablations -> replaced by Model B
+data/yelp_fake_sklearn_models/
+data/yelp_fake_lstm_onnx/
+data/yelp_fake_distilbert_onnx/
+data/yelp_fake_lstm_focal_onnx/
+data/yelp_fake_distilbert_focal_onnx/
+data/yelp_fake_lstm_contrastive_onnx/
+data/yelp_fake_distilbert_contrastive_onnx/
+# Model B Model-#1 fusion variants (local-only, not served)
+data/yelp_multimodal_fusion_models/
+data/yelp_multimodal_generalized_models/
+
+# ── runtime-created / local-only ──
+data/users.db
+
+# model backups (e.g. the depth-bounded-RF .bak files) — keep them locally if you like,
+# but never ship them: they're never loaded and would just bloat the image/transfer.
+*.bak
+**/*.bak
